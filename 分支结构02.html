@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		价格:<input type="text" id="inp" /><br />
+		<input type="button" id="choose" value="选择" />
+		<br />
+		成绩:<input type="text" id="score" /><br />
+		<input type="button" id="btn" value="等级" />
+		<br />
+		年份:<input type="text" name="" id="year" />
+		<input type="button" id="yearBtn" value="年份"/>
+	</body>
+	<script type="text/javascript">
+//		程序的执行顺序:
+//		1.顺序结构:代码自上而下执行;
+//		2.分支结构:程序选择执行某些代码; 分支:if语句,switch case;
+//		3.循环结构:只要满则某个条件,则循环执行循环体中的语句;
+//		if语句的第一种形式:
+//		if(条件表达式){
+//			语句1;
+//		}
+//		解释:如果条件表达式的结果为真,则执行语句1(代码块),反之,跳出if语句,继续执行以下代码;
+        var age = 19;
+        if (age < 18) {
+//      	    alert("我们约会吧!");
+        }
+        
+//      if语句的第二种形式:
+//      if(条件表达式){
+//      	  语句1;
+//      }else{
+//      	  语句2;
+//      }
+//      解释:如果条件表达式为真,则执行语句1;反之,执行语句2;再跳出if语句;
+       if (age < 18) {
+       	  alert("我们约会吧!");
+       } else{
+//     	  alert("叔叔,我们不约!");
+       }
+       
+       var inp = document.getElementById("inp");
+       var choose = document.getElementById("choose");
+       choose.onclick = function (){
+       	if (inp.value < 10) {
+       		alert("我们吃麻辣烫吧!");
+       	} else{
+       		alert("我们吃黄焖鸡!");
+       	}
+       }
+       
+//     if语句的第三种形式:
+//     if(条件表达式1){
+//     	  语句1;
+//     }else if(条件表达式2){
+//     	  语句2;
+//     }else{
+//     	语句3;
+//     }
+//     解释:如果条件表达式1为真,执行语句1;如果条件表达式1为假,2为真,则执行语句2;如果条件表达式1和2都为假,则执行语句3;
+      var score = document.getElementById("score");
+      var btn = document.getElementById("btn");
+      
+//    btn.onclick = function(){
+//    	if (score.value < 60) {
+//    		alert("不及格");
+//    	}else if(score.value >= 60 && score.value < 70){
+//    		alert("及格!");
+//    	}else if(score.value >= 70 && score.value < 90){
+//    		alert("良好!");
+//    	}else{
+//    		alert("优秀!");
+//    	}
+//    	
+//    }
+        //优化后的写法
+         btn.onclick = function(){
+      	if (score.value < 60) {
+      		alert("不及格");
+      	}else if(score.value < 70){
+      		alert("及格!");
+      	}else if(score.value < 90){
+      		alert("良好!");
+      	}else{
+      		alert("优秀!");
+      	}
+      	
+      }
+         
+//   练习:输入一个年份,判断该年份是平年还是闰年?
+//   闰年:以下条件满足其一即可;
+//   1.能被400整除;
+//   2.能被4整除,但是不能够被100整除;
+     var year = document.getElementById("year");
+     var yearBtn = document.getElementById("yearBtn");
+     var yearValue;//存储输入框的值
+     yearBtn.onclick = function (){
+     	yearValue = year.value;//获取输入框最新值
+     	if (yearValue % 400 == 0 || (yearValue % 4 == 0 && yearValue % 100 != 0)) {
+     		alert(yearValue + "年是闰年!");
+     	} else{
+     		alert(yearValue + "年是平年!");
+     	}
+     }
+     
+         
+	</script>
+</html>
